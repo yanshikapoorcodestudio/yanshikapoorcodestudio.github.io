@@ -225,17 +225,17 @@
 
       // --- Stats/Team Data ---
       const teamData = [
-          { name: "Yanshi Kapoor", role: "Lead Developer & Founder", specialty: "Full Stack Architecture" },
-          { name: "Yashveer Singh Rajpoot", role: "Senior Developer", specialty: "Full Stack" },
-          { name: "Priya Sharma", role: "Senior Developer", specialty: "Node.js & Database" },
-          { name: "Rohan Gupta", role: "Frontend Developer", specialty: "WebGL & React.js" },
-          { name: "Meera Patel", role: "Frontend Developer", specialty: "UI Implementation" },
-          { name: "Vikram Malhotra", role: "Backend Developer", specialty: "API Integrations" },
-          { name: "Sneha Reddy", role: "SEO Specialist", specialty: "Technical SEO" },
-          { name: "Arjun Verma", role: "SEO Specialist", specialty: "Content Strategy" },
-          { name: "Kavita Joshi", role: "SEO Specialist", specialty: "Analytics" },
-          { name: "Neelabh Indukudi", role: "Graphic Designer", specialty: "Brand Identity" },
-          { name: "Naina Das", role: "Graphic Designer", specialty: "UI/UX Design" },
+          { name: "Yanshi Kapoor", role: "Lead Developer & Founder", specialty: "Full Stack Architecture", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/yanshi.png" },
+          { name: "Yashveer Singh Rajpoot", role: "Senior Developer", specialty: "Full Stack", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Yashveer%20Singh%20Rajpoot.jpg?updatedAt=1767520785458" },
+          { name: "Priya Sharma", role: "Senior Developer", specialty: "Node.js & Database", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Priya%20Sharma.png" },
+          { name: "Rohan Gupta", role: "Frontend Developer", specialty: "WebGL & React.js", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Rohan%20Gupta.png" },
+          { name: "Meera Patel", role: "Frontend Developer", specialty: "UI Implementation", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Meera%20Patel.png" },
+          { name: "Vikram Malhotra", role: "Backend Developer", specialty: "API Integrations", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Vikram%20Malhotra.png" },
+          { name: "Sneha Reddy", role: "SEO Specialist", specialty: "Technical SEO", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Sneha%20Reddy.png" },
+          { name: "Arjun Verma", role: "SEO Specialist", specialty: "Content Strategy", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Arjun%20Verma.png" },
+          { name: "Kavita Joshi", role: "SEO Specialist", specialty: "Analytics", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Kavita%20Joshi.png" },
+          { name: "Neelabh Indukudi", role: "Graphic Designer", specialty: "Brand Identity", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Neelabh.png" },
+          { name: "Naina Das", role: "Graphic Designer", specialty: "UI/UX Design", image: "https://ik.imagekit.io/yanshi1/yanshi-kapoor-code-studio/employees/Naina%20Das.png" },
       ];
 
       // --- Projects Data ---
@@ -467,18 +467,19 @@
                                           A collective of 11 passionate individuals led by Yanshi Kapoor.
                                       </p>
                                   </div>
-                                  {/* Removed Detailed Profiles Button */}
                               </div>
 
                               <div className="grid md:grid-cols-4 gap-x-6 gap-y-12">
                                   {teamData.map((member, index) => (
                                       <div key={index} className="group">
-                                          <div className="w-full aspect-square bg-zinc-800 rounded-lg mb-4 overflow-hidden relative">
-                                              <div className="absolute inset-0 bg-zinc-700 group-hover:scale-105 transition-transform duration-500"></div>
-                                              {/* Placeholder Avatar Effect */}
-                                              <div className="absolute inset-0 flex items-center justify-center text-zinc-600 text-4xl font-thin opacity-20 select-none">
-                                                  {member.name.charAt(0)}
-                                              </div>
+                                          <div className="w-full aspect-square bg-zinc-800 rounded-lg mb-4 overflow-hidden relative group-hover:ring-1 group-hover:ring-white/20 transition-all">
+                                              {/* Image Rendering: Modified to object-contain to show full image and removed grayscale */}
+                                              <img
+                                                  src={member.image}
+                                                  alt={member.name}
+                                                  className="w-full h-full object-contain transition-transform duration-500 ease-in-out group-hover:scale-105"
+                                                  loading="lazy"
+                                              />
                                           </div>
                                           <h4 className="text-sm font-medium text-white">{member.name}</h4>
                                           <p className="text-xs text-indigo-400 mt-1 mb-2">{member.role}</p>
